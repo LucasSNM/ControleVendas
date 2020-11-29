@@ -1,5 +1,10 @@
 // VARIAVEL COMPRADOR SELECIONADO ARMAZENA O INDEX DE QUAL CLIENTE FOI SELECIONADO NO DROP DOWN MENU
 var compradorSelecionado
+
+//CAMINHO PARA LOCALHOST E PASTA DE TASTE API
+var caminho ='https://localhost:44378'
+
+//OBJETO COMPRADOR
 var comprador = {
   id: [1,2],
   nome: ['João','Victor'],
@@ -18,7 +23,7 @@ var comprador = {
             console.log('Houve um erro na execução do getWeather')
             console.error(error)
           })
-          
+
         var novoId = this.id.length+1
         this.id.push(novoId)
         this.nome.push(document.getElementById('span-comprador-nome').value)
@@ -82,7 +87,7 @@ var comprador = {
 
 //FUNÇÃO GERENCIA CLIENTE
 async function getComprador() {
-  const response = await fetch('https://localhost:44378/api/usuarios');
+  const response = await fetch(`${caminho}/api/usuarios`);
   const data = await response.json();
   data.forEach(element => {
       const { id, nome, cpf, endereco } = element;
@@ -110,7 +115,7 @@ async function postComprador( nome, cpf, endereco) {
           endereco: endereco,
       })
   };
-  const response = await fetch('https://localhost:44378/api/usuarios', options);
+  const response = await fetch(`${caminho}/api/usuarios`, options);
   const data = await response.json();
 }
 
@@ -129,7 +134,7 @@ async function putComprador(id, nome, cpf, endereco) {
           endereco: endereco,
       })
   };
-  const response = await fetch(`https://localhost:44378/api/usuarios/${id}`, options);
+  const response = await fetch(`${caminho}/api/usuarios/${id}`, options);
 }
 
 async function deleteComprador(id) {
@@ -142,7 +147,7 @@ async function deleteComprador(id) {
       },
 
   };
-  const response = await fetch(`https://localhost:44378/api/usuarios/${id}`, options);
+  const response = await fetch(`${caminho}/api/usuarios/${id}`, options);
 }
 
 
