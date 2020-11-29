@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Venda</title>
+    <link rel="stylesheet" href="dropdown.css">
+</head>
+<body>
+    <h1>Cadastro de Compra</h1>
+    <div class="dropdown">
+        <h2>Dados do Comprador</h2>
+        <p><input type="text" id='span-comprador-nome' disabled></input></p>
+        <p><input type="text" id='span-comprador-cpf' disabled></input></p>
+        <p><input type="text" id='span-comprador-endereco' disabled></input></p>
+        <p>
+            <button id="btn-salvar" onclick="comprador.salvar()" disabled>Salvar</button>
+            <button id="btn-alterar" onclick="liberaAlterar(true)">Cadastrar</button>
+            <button id="btn-deletar" onclick="comprador.deletar()" disabled>Deletar</button>
+        </p>
+        <button onclick="toggleDropDownComprador()" class="dropbtn comprador">Comprador</button>
+        <div id="myDropdown-Comprador" class="dropdown-content comprador">
+          
+        </div>
+        <p>*Somente um comprador é permitido por compra</p>
+    </div>
+
+    <br/>
+    <hr>
+
+    <div class="dropdown">
+        <h2>Selecione um Vendedor</h2>
+        <p><span id='span-vendedor'></span></p>
+        <button onclick="toggleDropDownVendedor()" class="dropbtn vendedor">Vendedor</button>
+        <div id="myDropdown-Vendedor" class="dropdown-content vendedor">
+          
+          
+
+        </div>
+        <p>*Somente um vendedor é permitido por compra</p>
+    </div>
+
+    <br/>
+    <hr>
+
+    <div class="dropdown">
+      <h2>Selecione um Produto</h2>
+      <p><span id='span-produto'></span></p>
+      <button onclick="toggleDropDownProduto()" class="dropbtn produto">Produto</button>
+      <div id="myDropdown-Produto" class="dropdown-content produto">
+
+      </div>
+  </div>
+</body>
+<script src="dropdown.js"></script>
+</html>
