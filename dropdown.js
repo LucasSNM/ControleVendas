@@ -6,10 +6,16 @@ var caminho ='https://localhost:44360'
 
 //OBJETO COMPRADOR
 var comprador = {
+  /*
   id: [1,2],
   nome: ['João','Victor'],
   cpf: ['1245652214','15478622145'],
   endereco: ['Travessa Ed, 30, Centro, Brazópolis, Minas Gerais, 37530000', 'Travessa Ed, 30, Centro, Brazópolis, Minas Gerais, 37660000'],
+  */
+  id: [],
+  nome: [],
+  cpf: [],
+  endereco: [],
   
   salvar: function(){
     if(document.getElementById('span-comprador-nome').value=="" || document.getElementById('span-comprador-cpf').value=="" || document.getElementById('span-comprador-endereco').value==""){
@@ -24,6 +30,7 @@ var comprador = {
             console.error(error)
           })
 
+          /*
         var novoId = this.id.length+1
         this.id.push(novoId)
         this.nome.push(document.getElementById('span-comprador-nome').value)
@@ -31,6 +38,7 @@ var comprador = {
         this.endereco.push(document.getElementById('span-comprador-endereco').value)
         
         compradorSelecionado=novoId
+        */
       }
       else{
         //FUNÇÃO PUT NA TABELA CLIENTE, ONDE CLIENTE/ID = COMPRADORSELECIONADO
@@ -39,10 +47,11 @@ var comprador = {
             console.log('Houve um erro na execução do getWeather')
             console.error(error)
           })
-
+          /*
         this.nome[compradorSelecionado] = document.getElementById('span-comprador-nome').value
         this.cpf[compradorSelecionado] = document.getElementById('span-comprador-cpf').value
         this.endereco[compradorSelecionado] = document.getElementById('span-comprador-endereco').value
+        */
       }
 
       limpa()
@@ -57,12 +66,12 @@ var comprador = {
             console.log('Houve um erro na execução do getWeather')
             console.error(error)
           })
-
+          /*
     comprador.id.splice(compradorSelecionado, 1)
     comprador.nome.splice(compradorSelecionado, 1)
     comprador.cpf.splice(compradorSelecionado, 1)
     comprador.endereco.splice(compradorSelecionado, 1)
-
+          */
 
     document.getElementById('btn-deletar').setAttribute("disabled", "true");
     limpa()
@@ -70,6 +79,11 @@ var comprador = {
 
   preenche: function(){
     //FUNÇÃO GET NO BANCO DE DADOS, QUE PEGA TODOS OS USÁRIOS CADASTRADOS E SALVA NO OBJETO
+    this.id=[]
+    this.nome=[]
+    this.cpf=[]
+    this.endereco=[]
+
     getComprador()
       .catch(error => {
         console.log('Houve um erro na execução do getWeather')
@@ -91,14 +105,14 @@ async function getComprador() {
   const data = await response.json();
   data.forEach(element => {
       const { id, nome, cpf, endereco } = element;
-      if(!carrinho.id.find(element => element == id)){
+      //if(!carrinho.id.find(element => element == id)){
 
         comprador.id.push(id)
         comprador.nome.push(nome)
         comprador.cpf.push(cpf)
         comprador.endereco.push(endereco)
 
-      }
+      //}
   });
 }
 
