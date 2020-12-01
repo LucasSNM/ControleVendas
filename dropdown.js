@@ -2,7 +2,7 @@
 var compradorSelecionado
 
 //CAMINHO PARA LOCALHOST E PASTA DE TASTE API
-var caminho ='https://localhost:44378'
+var caminho ='https://localhost:44360'
 
 //OBJETO COMPRADOR
 var comprador = {
@@ -87,7 +87,7 @@ var comprador = {
 
 //FUNÇÃO GERENCIA CLIENTE
 async function getComprador() {
-  const response = await fetch(`${caminho}/api/usuarios`);
+  const response = await fetch(`${caminho}/api/clientes`);
   const data = await response.json();
   data.forEach(element => {
       const { id, nome, cpf, endereco } = element;
@@ -115,7 +115,7 @@ async function postComprador( nome, cpf, endereco) {
           endereco: endereco,
       })
   };
-  const response = await fetch(`${caminho}/api/usuarios`, options);
+  const response = await fetch(`${caminho}/api/clientes`, options);
   const data = await response.json();
 }
 
@@ -134,7 +134,7 @@ async function putComprador(id, nome, cpf, endereco) {
           endereco: endereco,
       })
   };
-  const response = await fetch(`${caminho}/api/usuarios/${id}`, options);
+  const response = await fetch(`${caminho}/api/clientes/${id}`, options);
 }
 
 async function deleteComprador(id) {
@@ -147,7 +147,7 @@ async function deleteComprador(id) {
       },
 
   };
-  const response = await fetch(`${caminho}/api/usuarios/${id}`, options);
+  const response = await fetch(`${caminho}/api/clientes/${id}`, options);
 }
 
 
