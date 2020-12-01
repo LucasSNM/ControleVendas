@@ -92,6 +92,7 @@ var comprador = {
   },
 
   imprime: function (){
+      this.preenche()
       for(var i=0; i<this.id.length; i++){
           document.getElementById("myDropdown-Comprador").innerHTML+=`<a name='${i}'>${this.nome[i]} | ${this.cpf[i]}</a>`
       }
