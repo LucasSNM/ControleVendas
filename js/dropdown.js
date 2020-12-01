@@ -6,12 +6,6 @@ var caminho ='https://localhost:44360'
 
 //OBJETO COMPRADOR
 var comprador = {
-  /*
-  id: [1,2],
-  nome: ['João','Victor'],
-  cpf: ['1245652214','15478622145'],
-  endereco: ['Travessa Ed, 30, Centro, Brazópolis, Minas Gerais, 37530000', 'Travessa Ed, 30, Centro, Brazópolis, Minas Gerais, 37660000'],
-  */
   id: [],
   nome: [],
   cpf: [],
@@ -42,7 +36,7 @@ var comprador = {
       }
       else{
         //FUNÇÃO PUT NA TABELA CLIENTE, ONDE CLIENTE/ID = COMPRADORSELECIONADO
-        putComprador(compradorSelecionado, document.getElementById('span-comprador-nome').value, document.getElementById('span-comprador-cpf').value, document.getElementById('span-comprador-endereco').value)
+        putComprador(this.id[compradorSelecionado], document.getElementById('span-comprador-nome').value, document.getElementById('span-comprador-cpf').value, document.getElementById('span-comprador-endereco').value)
           .catch(error => {
             console.log('Houve um erro na execução do getWeather')
             console.error(error)
@@ -54,14 +48,17 @@ var comprador = {
         */
       }
 
+      
       limpa()
       liberaAlterar(false)
+
+      setTimeout(function(){ comprador.preenche() }, 500);
     }
   },
 
   deletar: function(){
     //FUNÇÃO DELETE NA TABELA CLIENTE, ONDE CLIENTE/ID = COMPRADORSELECIONADO
-    putComprador(compradorSelecionado)
+    deleteComprador(this.id[compradorSelecionado])
           .catch(error => {
             console.log('Houve um erro na execução do getWeather')
             console.error(error)
@@ -75,15 +72,19 @@ var comprador = {
 
     document.getElementById('btn-deletar').setAttribute("disabled", "true");
     limpa()
+
+    setTimeout(function(){ comprador.preenche() }, 500);
+    
   },
 
   preenche: function(){
     //FUNÇÃO GET NO BANCO DE DADOS, QUE PEGA TODOS OS USÁRIOS CADASTRADOS E SALVA NO OBJETO
+
     this.id=[]
     this.nome=[]
     this.cpf=[]
     this.endereco=[]
-
+    
     getComprador()
       .catch(error => {
         console.log('Houve um erro na execução do getWeather')
@@ -92,20 +93,20 @@ var comprador = {
   },
 
   imprime: function (){
-      this.preenche()
       for(var i=0; i<this.id.length; i++){
           document.getElementById("myDropdown-Comprador").innerHTML+=`<a name='${i}'>${this.nome[i]} | ${this.cpf[i]}</a>`
       }
   }
 }
 
-
+comprador.preenche()
 //FUNÇÃO GERENCIA CLIENTE
 async function getComprador() {
   const response = await fetch(`${caminho}/api/clientes`);
   const data = await response.json();
   data.forEach(element => {
       const { id, nome, cpf, email, endereco, servico } = element;
+
       //if(!carrinho.id.find(element => element == id)){
 
         comprador.id.push(id)
@@ -146,7 +147,9 @@ async function putComprador(id, nome, cpf, endereco) {
           id: parseInt(id),
           nome: nome,
           cpf: cpf,
+          email: null,
           endereco: endereco,
+          servico: null,
       })
   };
   const response = await fetch(`${caminho}/api/clientes/${id}`, options);
