@@ -6,6 +6,7 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
+    border-radius: 10px;
   }
   
   /* Dropdown button on hover & focus */
@@ -41,6 +42,7 @@
     min-width: 230px;
     border: 1px solid #ddd;
     z-index: 1;
+    
   }
   
   /* Links inside the dropdown */
@@ -54,7 +56,7 @@
   
   /* Change color of dropdown links on hover */
   .dropdown-content a:hover {
-      background-color: #f1f1f1;
+      background-color: #ee6415;
       cursor:pointer;
     }
   

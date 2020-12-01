@@ -1,0 +1,182 @@
+html {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #ee6415, #ee6415);
+    background-size: 100% 100%;
+}
+
+.container-fluid {
+    max-width: 650px;
+    margin: 0 auto;
+}
+.clearfix:before,
+.clearfix:after {
+   content: " ";
+   display: table;
+}
+
+.clearfix:after {
+   clear: both;
+}
+
+.clearfix {
+   *zoom: 1;
+}
+
+
+.cadastro-box {
+    position: fixed;
+    top: 50%;
+    margin-top: 38.5em;
+    margin-bottom: 2%;
+    left: 50%;
+    right: 0;
+    width: 50%;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgb(252, 252, 252);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+}
+
+.cadastro-box p {
+    text-align: center;
+    padding: 0;
+    color: #000000;
+    margin: 0 0 30px;
+}
+
+.cadastro-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #000000;
+    text-align: center;
+}
+
+.login-btn {
+    font-family: Hack, monospace;
+    background: #ffffff;
+    color: #ee6415;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 1.5rem;
+    border: 2%;
+    transition: all 0.8s;
+    border-radius: 10px;
+    width: 100%;
+    position: -ms-page;
+    min-width: 250px;
+    border-color: #ee6415;
+}
+
+.login-btn:hover {
+    background: #ee6415;
+    transition: all 0.5s;
+    border-radius: 10px;
+    color: #ffffff;
+    border-color: #ee6415;
+}
+
+button {
+    background: white;
+    border-color: #ee6415;
+    border-radius: 2%;
+    font-weight: bold;
+    width: 100%;
+    padding: 2%;
+}
+
+.espaco {
+    margin-bottom: 3%;
+}
+
+.cadastro-box .user-box {
+    position: relative;
+}
+
+.cadastro-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #ee6415;
+    outline: none;
+    background: transparent;
+}
+
+.cadastro-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 0px;
+    color: rgb(250, 250, 250);
+    pointer-events: none;
+    transition: .5s;
+}
+
+.cadastro-box .user-box input:focus~label, .cadastro-box .user-box input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #ee6415;
+    font-size: 12px;
+}
+
+.cadastro-box a span {
+    position: absolute;
+    display: block;
+}
+
+.cadastro-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8b05be);
+    animation: btn-anim1 1s linear infinite;
+}
+
+.cadastro-box a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #8b05be);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+}
+
+.cadastro-box a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #8b05be);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+}
+
+.cadastro-box a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #8b05be);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+}
+
+.style-border {
+    font-weight: bolder;
+}
