@@ -104,7 +104,7 @@ async function getComprador() {
   const response = await fetch(`${caminho}/api/clientes`);
   const data = await response.json();
   data.forEach(element => {
-      const { id, nome, cpf, endereco } = element;
+      const { id, nome, cpf, email, endereco, servico } = element;
       //if(!carrinho.id.find(element => element == id)){
 
         comprador.id.push(id)
